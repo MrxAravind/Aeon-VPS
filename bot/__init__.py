@@ -437,13 +437,6 @@ if BASE_URL:
         shell=True,
     )
 
-srun(["xnox", "-d", "--profile=."], check=False)
-if not ospath.exists(".netrc"):
-    with open(".netrc", "w"):
-        pass
-srun(["chmod", "600", ".netrc"], check=False)
-srun(["cp", ".netrc", "/root/.netrc"], check=False)
-
 trackers = (
     check_output(
         "curl -Ns https://raw.githubusercontent.com/XIU2/TrackersListCollection/master/all.txt https://ngosang.github.io/trackerslist/trackers_all_http.txt https://newtrackon.com/api/all https://raw.githubusercontent.com/hezhijie0327/Trackerslist/main/trackerslist_tracker.txt | awk '$0' | tr '\n\n' ','",
